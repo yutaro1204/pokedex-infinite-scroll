@@ -3,7 +3,7 @@ import getQueryClient from '@/app/getQueryClient'
 import { fetchPokemons } from '@/app/api'
 import { PokemonsList } from '@/app/components/pokemons/index'
 
-export default async function Home() {
+export default async function Pokemons() {
   const queryClient = getQueryClient()
   await queryClient.prefetchQuery(['pokemons'], fetchPokemons)
   const dehydratedState = dehydrate(queryClient)
