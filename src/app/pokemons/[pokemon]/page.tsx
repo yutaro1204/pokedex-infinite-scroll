@@ -1,3 +1,5 @@
+export const runtime = 'edge'
+
 import { dehydrate, Hydrate } from '@tanstack/react-query'
 import getQueryClient from '@/app/getQueryClient'
 import { fetchPokemon } from '@/app/api'
