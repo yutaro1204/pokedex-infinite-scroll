@@ -44,8 +44,6 @@ export async function fetchPokemons(): Promise<Response> {
 
   const details = await fetchPokemonDetails(data.results)
 
-  console.log(details)
-
   const res = {
     count: data.count,
     next: data.next,

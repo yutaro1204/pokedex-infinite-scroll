@@ -21,7 +21,6 @@ export default function FavoritePokemonsList() {
                 <button
                   className='cursor-pointer'
                   onClick={() => {
-                    console.log('remove')
                     const keptFavorites = favoritePokemons.filter((favorite: Pokemon) => favorite.name !== pokemon.name)
                     setFavoritePokemons(keptFavorites)
                   }}
