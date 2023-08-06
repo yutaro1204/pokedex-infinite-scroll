@@ -7,8 +7,8 @@ type Response = {
   results: Pokemon[]
 }
 
-export async function fetchPokemon(pokemon: string) {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, {
+export async function fetchPokemon(pokemon: string): Promise<Pokemon> {
+  const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, {
     headers: { 'Content-Type': 'application/json' },
   }).then((res) => {
     return res.json()
@@ -16,7 +16,11 @@ export async function fetchPokemon(pokemon: string) {
     console.error(error)
   })
 
-  return res
+  return {
+    name: data.name,
+    icon: data.sprites.front_default,
+    types: data.types.map((type: any) => type.type.name)
+  }
 }
 
 export function fetchPokemonDetails(pokemons: []) {

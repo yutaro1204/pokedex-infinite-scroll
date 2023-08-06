@@ -13,8 +13,8 @@ export function PokemonDetail({ pokemon }: { pokemon: string }) {
       <section className="max-w-[900px] flex flex-wrap">
         <figure className="w-full flex justify-center">
           <Image
-            src={data.sprites.front_default}
-            alt={data.name}
+            src={data!.icon}
+            alt={data!.name}
             width={240}
             height={240}
             priority
@@ -22,12 +22,12 @@ export function PokemonDetail({ pokemon }: { pokemon: string }) {
         </figure>
         <dt className="w-full text-center py-[10px]">
           <p className="text-xl font-bold">
-            {data.name.toUpperCase()}
+            {data!.name.toUpperCase()}
           </p>
         </dt>
         <dd className="w-full flex justify-center">
           {
-            data.types.map((type: string) => <TypeTag key={`${data.name}-${type}`} pokemon={data.name} type={type} />)
+            data!.types.map((type: string) => <TypeTag key={`${data!.name}-${type}`} pokemon={data!.name} type={type} />)
           }
         </dd>
       </section>
